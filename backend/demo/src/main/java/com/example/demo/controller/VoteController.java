@@ -20,8 +20,7 @@ public class VoteController {
     // 투표하기
     // POST /api/votes
     @PostMapping("/votes")
-    public ResponseEntity<VoteResponse> vote(@Valid @RequestBody VoteRequest req,
-                                             HttpServletRequest httpReq) {
+    public ResponseEntity<VoteResponse> vote(@Valid @RequestBody VoteRequest req, HttpServletRequest httpReq) {
         String ip = extractClientIp(httpReq);
         VoteResponse res = voteService.vote(req, ip);
         return ResponseEntity.ok(res);
